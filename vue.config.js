@@ -9,6 +9,7 @@ module.exports = {
             //https: true
         }
     },
+    outputDir: "docs",
     chainWebpack: config => {
         config.plugin('html').tap(config => {
             for (const arg of config) {
