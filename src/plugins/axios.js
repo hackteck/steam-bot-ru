@@ -13,6 +13,6 @@ else console.warn("!!! NEED TO SET AXIOS HOST WITH API !!!");
 axios.interceptors.response.use(
     response => response,
     error => {
-        if (error.response == undefined) alert("Ошибка сети!");
+        //if (error.response == undefined) alert("Ошибка сети!");
         return Promise.reject(error);
     });
