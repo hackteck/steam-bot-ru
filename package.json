@@ -5,11 +5,17 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build-ssr": "webpack -p --config ./webpack.ssr.config.js --progress",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free-brands": "^5.0.13",
+    "axios": "^0.19.0",
     "core-js": "^2.6.5",
-    "vue": "^2.6.10"
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.3",
+    "vuetify": "^2.0.0",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.11.0",
@@ -18,7 +24,13 @@
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
-    "vue-template-compiler": "^2.6.10"
+    "sass": "^1.17.4",
+    "sass-loader": "^7.1.0",
+    "vue-cli-plugin-vuetify": "^0.6.3",
+    "vue-server-renderer": "^2.6.10",
+    "vue-template-compiler": "^2.6.10",
+    "vuetify-loader": "^1.2.2",
+    "webpack-cli": "^3.3.9"
   },
   "eslintConfig": {
     "root": true,
@@ -29,7 +41,9 @@
       "plugin:vue/essential",
       "eslint:recommended"
     ],
-    "rules": {},
+    "rules": {
+      "no-console": "off"
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }

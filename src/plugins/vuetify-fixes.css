@@ -1,0 +1,4 @@
+/*без этого подсказка "уплывёт" при прокрутке*/
+.v-tooltip__content--fixed {
+  position: fixed!important;
+}

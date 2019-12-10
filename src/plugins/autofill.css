@@ -1,0 +1,23 @@
+@keyframes autofill {
+  to {
+    color: inherit;
+    background: transparent;
+  }
+}
+
+input:-webkit-autofill {
+  animation-name: autofill;
+  animation-fill-mode: both;
+}
+
+@keyframes not-autofill {
+  to {
+    color: inherit;
+    background: transparent;
+  }
+}
+
+input:not(:-webkit-autofill) {
+  animation-name: not-autofill;
+  animation-fill-mode: both;
+}

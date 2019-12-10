@@ -1,28 +1,42 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <app-drawer />
+    <app-toolbar />
+    <app-content />
+    <app-footer />
+    <!-- SKYPE -->
+    <!--skype /-->
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'app',
   components: {
-    HelloWorld
+    appDrawer: () => import("./components/drawer/index.vue"),
+    appToolbar: () => import("./components/toolbar/index.vue"),
+    appContent: () => import("./components/content/index.vue"),
+    appFooter: () => import("./components/footer.vue")
+  },
+  data() {
+    return {
+      app: {
+        load: false,
+        drawer: this.$vuetify.breakpoint.mdAndDown ? false : true
+      }
+    }
+  },
+  provide() {
+    return {
+      core: this,
+      app: this.app
+    };
+  },
+  mounted() {
+    //emit events
+    this.$router.afterEach(this.$emit.bind(this, "load"));
+    window.addEventListener("load", this.$emit.bind(this, "load"), true);
+    //if route has user check we must emit event in this way
+    if (document.readyState == "complete") this.$emit("load", { isTrusted: true });
   }
-}
+};
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
