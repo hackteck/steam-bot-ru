@@ -18,6 +18,7 @@ Vue.mixin({
   }
 });
 
+/*
 store.user = new Promise(async (resolve, reject) => {
   try {
     const { data } = await axios.get("/user");
@@ -31,6 +32,9 @@ store.user = new Promise(async (resolve, reject) => {
     };
   }
 })
+*/
+
+store.user = false;
 
 export function logout() {
   store.user = false;

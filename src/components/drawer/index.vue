@@ -17,11 +17,7 @@ export default {
     appUserLoggedIn: () => import("./logged_in.vue")
   },
   created() {
-    return;
-    this.$user = {
-      role: "admin",
-      balance: 1000,
-    }
+
   }
 };
 </script>
